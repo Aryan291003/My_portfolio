@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --prime-bg: #0b0f12;
+  --prime-accent: #f6c200;
+}
+
+html,body,#root{height:100%;background:var(--prime-bg);}
+
+.bg-prime-dark{background:var(--prime-bg)}
+.text-prime{color:var(--prime-accent)}
