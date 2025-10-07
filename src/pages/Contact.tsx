@@ -12,10 +12,10 @@ const Contact: React.FC = () => {
 
     emailjs
       .sendForm(
-        "service_3pjw44j",   // Replace with your EmailJS Service ID
-        "template_eudaoij",  // Replace with your EmailJS Template ID
+        "service_3pjw44j",   
+        "template_eudaoij",  
         form.current,
-        "YTo7pUC_r_sn4qbXG"    // Replace with your EmailJS Public Key
+        "YTo7pUC_r_sn4qbXG"    
       )
       .then(
         (result) => {
@@ -37,13 +37,12 @@ const Contact: React.FC = () => {
         onSubmit={sendEmail}
         className="w-full max-w-md bg-[#1e293b] rounded-xl shadow-2xl overflow-hidden"
       >
-        {/* Header */}
+     
         <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-6 text-center">
           <h2 className="text-3xl font-bold text-white">Contact Me</h2>
           <p className="text-gray-200 mt-1">Send me a message and I'll get back to you!</p>
         </div>
 
-        {/* Form Body */}
         <div className="p-6 flex flex-col gap-4">
           <input
             type="text"

@@ -18,25 +18,33 @@ const projects = [
   {
     id: 'p3',
     title: 'Router Kernel',
-    image: 'https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1?auto=format&fit=crop&w=1200&q=80',
+    image: '/image/RouterKernel.png',
     description: 'made a low level router kernel in RUSt for class Project .',
-    tags: ['Game','Canvas'],
+    tags: ['Rust','QEMU'],
     link: '#'
   },
   {
     id: 'p4',
     title: 'RC Car Website',
-    image: 'https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1?auto=format&fit=crop&w=1200&q=80',
-    description: 'made a low level router kernel in RUSt for class Project .',
-    tags: ['Game','Canvas'],
+    image: '/image/RCcars.png',
+    description: 'made Rc car webiste as a class project using React javascript and mongoDB.',
+    tags: ['React','javascript','CSS','mongoDB', 'Node.js'],
     link: '#'
   },
   {
-    id: 'p4',
+    id: 'p5',
+    title: ' Advance Mobile Calculator App',
+    image: '/image/calculator1.png',
+    description: 'made mobile calculator using React and javascript it can perform basic conversion and advance convserion aswell.',
+    tags: ['React','javascript'],
+    link: '#'
+  },
+  {
+    id: 'p6',
     title: 'Employee Management System',
-    image: 'https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1?auto=format&fit=crop&w=1200&q=80',
-    description: 'made a low level router kernel in RUSt for class Project .',
-    tags: ['Game','Canvas'],
+    image: '/image/employeeM.png',
+    description: 'made a simple employee managemnt system using C# in MAUI app and SQLlite  .',
+    tags: ['C#','MAUI','SQLlite'],
     link: '#'
   }
 
