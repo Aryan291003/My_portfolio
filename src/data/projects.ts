@@ -17,12 +17,29 @@ const projects = [
   },
   {
     id: 'p3',
-    title: 'Rc cars Website',
+    title: 'Router Kernel',
     image: 'https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1?auto=format&fit=crop&w=1200&q=80',
-    description: 'A small browser game built with React.',
+    description: 'made a low level router kernel in RUSt for class Project .',
+    tags: ['Game','Canvas'],
+    link: '#'
+  },
+  {
+    id: 'p4',
+    title: 'RC Car Website',
+    image: 'https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1?auto=format&fit=crop&w=1200&q=80',
+    description: 'made a low level router kernel in RUSt for class Project .',
+    tags: ['Game','Canvas'],
+    link: '#'
+  },
+  {
+    id: 'p4',
+    title: 'Employee Management System',
+    image: 'https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1?auto=format&fit=crop&w=1200&q=80',
+    description: 'made a low level router kernel in RUSt for class Project .',
     tags: ['Game','Canvas'],
     link: '#'
   }
+
 ]
 
 export default projects

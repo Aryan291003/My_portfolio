@@ -5,7 +5,7 @@ export default function Projects(){
   return (
     <div className="max-w-6xl mx-auto px-4 py-12">
       <h1 className="text-3xl font-bold">Projects</h1>
-      <p className="text-gray-400 mt-2">Add and edit projects in <code>src/data/projects.ts</code></p>
+      
 
       <div className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {projects.map(p => (
