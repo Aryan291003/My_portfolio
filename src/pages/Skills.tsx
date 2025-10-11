@@ -1,7 +1,7 @@
 import React from 'react'
 import skills from '../data/skills'
 
-export default function Projects(){
+export default function Skills(){
   return (
     <div className="max-w-6xl mx-auto px-4 py-12">
       <h1 className="text-3xl font-bold">Skills</h1>

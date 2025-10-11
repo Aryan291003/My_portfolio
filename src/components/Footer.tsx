@@ -6,7 +6,7 @@ export default function Footer(){
       <div className="max-w-6xl mx-auto px-4 text-sm text-gray-400">
         <div className="flex items-center justify-between">
           <div>© 2025 aryan rattan </div>
-          <div>Built using React,Vite,tailwindCSS</div>
+          <div>Built using React,Vite,tailwindCSS, typescript</div>
         </div>
       </div>
     </footer>

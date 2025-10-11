@@ -41,6 +41,8 @@ export default function Header() {
           <a
             href="/resume.pdf"
             className="ml-3 px-3 py-2 rounded-md text-sm font-semibold bg-white/10 hover:bg-white/20"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             Resume
           </a>
