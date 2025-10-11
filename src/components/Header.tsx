@@ -8,7 +8,7 @@ const NavLink: React.FC<{ to: string; children: React.ReactNode }> = ({ to, chil
     <Link
       to={to}
       className={`px-3 rounded-md text-sm font-semibold ${
-        active ? 'bg-gray-900 text-black' : 'text-gray-200 hover:bg-white/50'
+        active ? 'bg-blue-500 text-black' : 'text-gray-200 hover:bg-white/50'
       }`}
     >
       {children}
@@ -27,7 +27,7 @@ export default function Header() {
       <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div>
-            <span className="font-bold text-blue-500 px-2">AMAZING PRIME</span>
+            <span className="font-bold text-blue-500 px-2">AMAZING PORTFOLIO</span>
           </div>
         </div>
 
@@ -41,6 +41,8 @@ export default function Header() {
           <a
             href="/resume.pdf"
             className="ml-3 px-3 py-2 rounded-md text-sm font-semibold bg-white/10 hover:bg-white/20"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             Resume
           </a>

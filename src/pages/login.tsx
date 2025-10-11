@@ -25,7 +25,7 @@ export default function Login() {
               className="rounded-full hover:scale-105 transition-transform duration-300 focus:outline-none"
             >
               <img
-                src="/Login.png"
+                src="/image/Login.png"
                 alt="Profile Icon"
                 className="w-50 h-50 rounded-full object-cover"
               />

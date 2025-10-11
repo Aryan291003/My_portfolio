@@ -10,15 +10,15 @@ import Skills from './pages/Skills'
 import Contact from './pages/Contact'
 import Resume from './pages/Resume'
 import Login from './pages/login'
-
+import ProjectDetails from './pages/ProjectDetails'
 export default function App() {
   return (
     <div className="min-h-screen bg-[#0b0f12] text-white">
       <Routes>
-        {/* Login route */}
+        
         <Route path="/" element={<Login />} />
 
-        {/* All main pages wrapped with Header + Footer */}
+        
         <Route path="/home" element={
           <>
             <Header />
@@ -40,6 +40,16 @@ export default function App() {
             <Footer />
           </>
         } />
+        <Route
+          path="/projects/:id"
+            element={
+            <>
+            <Header />
+              <main className="pt-20"><ProjectDetails /></main>
+            <Footer />
+    </>
+  }
+/>
         <Route path="/skills" element={
           <>
             <Header />
@@ -62,7 +72,7 @@ export default function App() {
           </>
         } />
 
-        {/* Redirect all unknown routes to /login */}
+       
         <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>
     </div>
