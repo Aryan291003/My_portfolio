@@ -158,8 +158,10 @@ const Home: React.FC = () => {
           className="flex space-x-6 overflow-x-hidden scroll-smooth py-2"
         >
           {upcomingskills.map((skill, index) => (
-            <Link key={index} to={`/projects/${skill.id}`}>
-              <div className="w-[300px] h-[280px] bg-[#1a1a1a] rounded-xl shadow-lg flex-shrink-0 cursor-pointer hover:scale-105 transition-transform duration-300 group relative">
+            
+              <div 
+                key={index}
+              className="w-[300px] h-[280px] bg-[#1a1a1a] rounded-xl shadow-lg flex-shrink-0 cursor-pointer hover:scale-105 transition-transform duration-300 group relative">
                 <img
                   src={skill.image}
                   alt={skill.title}
@@ -169,7 +171,7 @@ const Home: React.FC = () => {
                   <h3 className="text-xl font-semibold">{skill.title}</h3>
                 </div>
               </div>
-            </Link>
+          
           ))}
         </div>
       </section>
