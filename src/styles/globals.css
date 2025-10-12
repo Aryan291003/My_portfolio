@@ -2,12 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
-:root{
+:root {
   --prime-bg: #0b0f12;
   --prime-accent: #f6c200;
 }
 
-html,body,#root{height:100%;background:var(--prime-bg);}
+html, body, #root {
+  height: 100%;
+  background: var(--prime-bg);
+}
 
-.bg-prime-dark{background:var(--prime-bg)}
-.text-prime{color:var(--prime-accent)}
+.bg-prime-dark { background: var(--prime-bg); }
+.text-prime { color: var(--prime-accent); }
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Smooth text scaling */
+h1, h2, h3 {
+  line-height: 1.2;
+  word-break: break-word;
+}
+p {
+  line-height: 1.6;
+}
