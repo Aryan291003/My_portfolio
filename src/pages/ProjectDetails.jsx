@@ -8,8 +8,8 @@ export default function ProjectDetails() {
 
   if (!project) {
     return (
-      <div className="max-w-4xl mx-auto px-6 py-12 text-center">
-        <h2 className="text-3xl font-bold mb-4">Project not found </h2>
+      <div className="max-w-4xl mx-auto px-6 py-16 text-center text-gray-200">
+        <h2 className="text-3xl font-bold mb-4 text-yellow-400">Project Not Found</h2>
         <Link
           to="/projects"
           className="text-yellow-400 hover:underline text-lg"
@@ -21,7 +21,7 @@ export default function ProjectDetails() {
   }
 
   return (
-    <div className="max-w-5xl mx-auto px-6 py-12">
+    <div className="max-w-5xl mx-auto px-6 py-16 text-gray-200">
       <Link
         to="/projects"
         className="text-yellow-400 hover:underline text-lg mb-6 inline-block"
@@ -29,18 +29,20 @@ export default function ProjectDetails() {
         ← Back to Projects
       </Link>
 
-      <h1 className="text-4xl font-bold mb-4">{project.title}</h1>
-      <p className="text-gray-400 mb-8">{project.longDescription || project.description}</p>
+      <h1 className="text-4xl font-bold mb-4 text-white">{project.title}</h1>
+      <p className="text-gray-400 mb-8 leading-relaxed">
+        {project.longDescription || project.description}
+      </p>
 
       <div className="mb-8">
         <img
           src={project.image}
           alt={project.title}
-          className="rounded-xl w-full max-h-[500px] object-cover"
+          className="rounded-xl w-full max-h-[500px] object-cover shadow-lg"
         />
       </div>
 
-      {project.extraImages && project.extraImages.length > 0 && (
+      {project.extraImages?.length > 0 && (
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
           {project.extraImages.map((img, i) => (
             <img
@@ -53,8 +55,21 @@ export default function ProjectDetails() {
         </div>
       )}
 
+      {project.video && (
+        <video
+          className="w-full rounded-lg shadow-lg mt-6"
+          controls
+          autoPlay
+          muted
+          loop
+        >
+          <source src={project.video} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      )}
+
       {project.tags && (
-        <div className="flex flex-wrap gap-2 mt-4">
+        <div className="flex flex-wrap gap-2 mt-6">
           {project.tags.map((tag, i) => (
             <span
               key={i}
@@ -65,27 +80,15 @@ export default function ProjectDetails() {
           ))}
         </div>
       )}
-      {project.video && (
-  <video
-    className="w-full rounded-lg shadow-md mt-4"
-    controls
-    autoPlay
-    muted
-    loop
-  >
-    <source src={project.video} type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
-)}
 
       {project.link && (
         <a
           href={project.link}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-6 inline-block bg-yellow-500 hover:bg-yellow-600 text-black px-4 py-2 rounded-md font-semibold"
+          className="mt-8 inline-block bg-yellow-500 hover:bg-yellow-600 text-black px-5 py-2 rounded-md font-semibold transition-colors"
         >
-          View gitHub Project
+          View GitHub Project
         </a>
       )}
     </div>

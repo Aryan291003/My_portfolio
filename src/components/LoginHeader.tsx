@@ -1,18 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-export default function LoginHeader(){
+export default function LoginHeader() {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-b from-[#7c7fa84d] via-transparent to-transparent backdrop-blur-md">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-[#0b0f12]/80 backdrop-blur-md border-b border-white/10">
       <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <div>
-            <span className="font-bold text-blue-500 ">AMAZING PORTFOLIO</span>
-          </div>
-          
-        </div>
-
-       
+        <span className="font-bold text-yellow-400 text-lg">AMAZING PORTFOLIO</span>
       </div>
     </header>
-  )
+  );
 }

@@ -12,35 +12,34 @@ const Contact: React.FC = () => {
 
     emailjs
       .sendForm(
-        "service_3pjw44j",   
-        "template_eudaoij",  
+        "service_3pjw44j",
+        "template_eudaoij",
         form.current,
-        "YTo7pUC_r_sn4qbXG"    
+        "YTo7pUC_r_sn4qbXG"
       )
       .then(
-        (result) => {
-          console.log(result.text);
+        () => {
           setSuccess("Message sent successfully!");
           form.current?.reset();
         },
-        (error) => {
-          console.log(error.text);
+        () => {
           setSuccess("Oops! Something went wrong.");
         }
       );
   };
 
   return (
-    <div className="min-h-screen bg-gray-950 flex items-center justify-center px-4">
+    <div className="min-h-screen bg-gray-950 flex items-center justify-center px-4 py-10 sm:py-0">
       <form
         ref={form}
         onSubmit={sendEmail}
-        className="w-full max-w-md bg-[#1e293b] rounded-xl shadow-2xl overflow-hidden"
+        className="w-full max-w-sm sm:max-w-md bg-[#1e293b] rounded-xl shadow-2xl overflow-hidden"
       >
-     
         <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-6 text-center">
-          <h2 className="text-3xl font-bold text-white">Contact Me</h2>
-          <p className="text-gray-200 mt-1">Send me a message and I'll get back to you!</p>
+          <h2 className="text-2xl sm:text-3xl font-bold text-white">Contact Me</h2>
+          <p className="text-sm sm:text-base text-gray-200 mt-1">
+            Send me a message and I'll get back to you!
+          </p>
         </div>
 
         <div className="p-6 flex flex-col gap-4">
