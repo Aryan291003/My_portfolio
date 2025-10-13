@@ -40,9 +40,9 @@ export default function Projects() {
                       href={p.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-yellow-400 font-semibold hover:underline"
+                      className="text-blue-400 font-semibold hover:underline"
                     >
-                      View Live →
+                      View Live 
                     </a>
                   </div>
                 )}

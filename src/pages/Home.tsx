@@ -96,7 +96,6 @@ const Home: React.FC = () => {
     <div className="relative w-full min-h-screen bg-gray-950 text-white overflow-hidden">
       <HeroVideo videoSrc="/video/intro.mp4" poster="/image/hero-fallback.jpg" />
 
-      {/* === Featured Projects === */}
       <section className="relative bg-black py-12 px-4 sm:py-16 sm:px-8">
         <div className="flex items-center justify-between mb-6 sm:mb-8">
           <h2 className="text-2xl sm:text-3xl font-semibold">Featured Projects</h2>
@@ -152,7 +151,7 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* === Skills === */}
+     
       <section className="relative bg-black py-12 px-4 sm:py-16 sm:px-8">
         <div className="flex items-center justify-between mb-6 sm:mb-8">
           <h2 className="text-2xl sm:text-3xl font-semibold">Skills</h2>
@@ -196,7 +195,6 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* === Upcoming Projects === */}
       <section className="bg-black py-12 px-4 sm:py-16 sm:px-8">
         <h2 className="text-2xl sm:text-3xl font-semibold mb-6 sm:mb-8">
           Upcoming Projects
@@ -232,7 +230,7 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* === Upcoming Skills === */}
+      
       <section className="relative bg-black py-12 px-4 sm:py-16 sm:px-8">
         <div className="flex items-center justify-between mb-6 sm:mb-8">
           <h2 className="text-2xl sm:text-3xl font-semibold">Upcoming Skills</h2>
