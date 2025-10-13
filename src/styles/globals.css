@@ -27,7 +27,7 @@ img, video {
   display: block;
 }
 
-/* Smooth text scaling */
+
 h1, h2, h3 {
   line-height: 1.2;
   word-break: break-word;
@@ -40,7 +40,7 @@ p {
     display: none;
   }
   .hide-scrollbar {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;     /* Firefox */
+    -ms-overflow-style: none;  
+    scrollbar-width: none;    
   }
 }
