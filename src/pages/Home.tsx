@@ -1,83 +1,126 @@
 'use client';
-import React, { useRef } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import projects from "../data/projects";
 import skills from "../data/skills";
 import upcoming from "../data/upcoming";
 import upcomingskills from "../data/upcomingskills";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import HeroVideo from "../components/HeroVideo";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const Home: React.FC = () => {
   const projectRef = useRef<HTMLDivElement>(null!);
   const skillRef = useRef<HTMLDivElement>(null!);
   const uskillRef = useRef<HTMLDivElement>(null!);
+  const [isMobile, setIsMobile] = useState(false);
 
-  // Scroll buttons
+  // ✅ Detect device type
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // ✅ Enable drag/swipe scroll (unified for touch & mouse)
+  const enableDragScroll = (ref: React.RefObject<HTMLDivElement>) => {
+    const element = ref.current;
+    if (!element) return;
+
+    let isDown = false;
+    let startX = 0;
+    let scrollLeft = 0;
+
+    const start = (e: MouseEvent | TouchEvent) => {
+      isDown = true;
+      element.classList.add("cursor-grabbing");
+      startX =
+        (e instanceof MouseEvent ? e.pageX : e.touches[0].pageX) -
+        element.offsetLeft;
+      scrollLeft = element.scrollLeft;
+    };
+
+    const end = () => {
+      isDown = false;
+      element.classList.remove("cursor-grabbing");
+    };
+
+    const move = (e: MouseEvent | TouchEvent) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x =
+        (e instanceof MouseEvent ? e.pageX : e.touches[0].pageX) -
+        element.offsetLeft;
+      const walk = (x - startX) * 1.5;
+      element.scrollLeft = scrollLeft - walk;
+    };
+
+    element.addEventListener("mousedown", start);
+    element.addEventListener("mouseleave", end);
+    element.addEventListener("mouseup", end);
+    element.addEventListener("mousemove", move);
+    element.addEventListener("touchstart", start);
+    element.addEventListener("touchend", end);
+    element.addEventListener("touchmove", move);
+
+    return () => {
+      element.removeEventListener("mousedown", start);
+      element.removeEventListener("mouseleave", end);
+      element.removeEventListener("mouseup", end);
+      element.removeEventListener("mousemove", move);
+      element.removeEventListener("touchstart", start);
+      element.removeEventListener("touchend", end);
+      element.removeEventListener("touchmove", move);
+    };
+  };
+
+  useEffect(() => {
+    const cleanups = [
+      enableDragScroll(projectRef),
+      enableDragScroll(skillRef),
+      enableDragScroll(uskillRef),
+    ];
+    return () => cleanups.forEach((cleanup) => cleanup && cleanup());
+  }, []);
+
   const scroll = (ref: React.RefObject<HTMLDivElement>, direction: "left" | "right") => {
     if (!ref.current) return;
-    const scrollAmount = ref.current.clientWidth * 0.8;
+    const scrollAmount = ref.current.clientWidth * 0.9;
     ref.current.scrollBy({
       left: direction === "left" ? -scrollAmount : scrollAmount,
       behavior: "smooth",
     });
   };
 
-  // Swipe handling (touch)
-  const addSwipe = (ref: React.RefObject<HTMLDivElement>) => {
-    let startX = 0;
-    let scrollLeft = 0;
-    let isDown = false;
-
-    ref.current?.addEventListener("touchstart", (e) => {
-      isDown = true;
-      startX = e.touches[0].pageX - ref.current!.offsetLeft;
-      scrollLeft = ref.current!.scrollLeft;
-    });
-
-    ref.current?.addEventListener("touchend", () => {
-      isDown = false;
-    });
-
-    ref.current?.addEventListener("touchmove", (e) => {
-      if (!isDown) return;
-      e.preventDefault();
-      const x = e.touches[0].pageX - ref.current!.offsetLeft;
-      const walk = (x - startX) * 1.5; // scroll speed
-      ref.current!.scrollLeft = scrollLeft - walk;
-    });
-  };
-
-  React.useEffect(() => {
-    addSwipe(projectRef);
-    addSwipe(skillRef);
-    addSwipe(uskillRef);
-  }, []);
-
   return (
     <div className="relative w-full min-h-screen bg-gray-950 text-white overflow-hidden">
       <HeroVideo videoSrc="/video/intro.mp4" poster="/image/hero-fallback.jpg" />
 
-      {/* Featured Projects */}
+      {/* === Featured Projects === */}
       <section className="relative bg-black py-12 px-4 sm:py-16 sm:px-8">
-        <h2 className="text-2xl sm:text-3xl font-semibold mb-6 sm:mb-8">Featured Projects</h2>
-
-        <button
-          onClick={() => scroll(projectRef, "left")}
-          className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/70 hover:bg-black/90 p-2 sm:p-3 rounded-full z-10"
-        >
-          <ChevronLeft size={24} />
-        </button>
-        <button
-          onClick={() => scroll(projectRef, "right")}
-          className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/70 hover:bg-black/90 p-2 sm:p-3 rounded-full z-10"
-        >
-          <ChevronRight size={24} />
-        </button>
+        <div className="flex items-center justify-between mb-6 sm:mb-8">
+          <h2 className="text-2xl sm:text-3xl font-semibold">Featured Projects</h2>
+          {!isMobile && (
+            <div className="flex gap-3">
+              <button
+                onClick={() => scroll(projectRef, "left")}
+                className="p-2 bg-white/10 hover:bg-white/20 rounded-full"
+              >
+                <ChevronLeft />
+              </button>
+              <button
+                onClick={() => scroll(projectRef, "right")}
+                className="p-2 bg-white/10 hover:bg-white/20 rounded-full"
+              >
+                <ChevronRight />
+              </button>
+            </div>
+          )}
+        </div>
 
         <div
           ref={projectRef}
-          className="flex space-x-4 sm:space-x-6 overflow-x-hidden scroll-smooth py-2"
+          className="flex space-x-4 sm:space-x-6 overflow-x-auto scroll-smooth py-2 cursor-grab select-none hide-scrollbar"
         >
           {projects.slice(0, 6).map((project, index) => (
             <Link key={index} to={`/projects/${project.id}`}>
@@ -109,26 +152,31 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Skills */}
+      {/* === Skills === */}
       <section className="relative bg-black py-12 px-4 sm:py-16 sm:px-8">
-        <h2 className="text-2xl sm:text-3xl font-semibold mb-6 sm:mb-8">Skills</h2>
-
-        <button
-          onClick={() => scroll(skillRef, "left")}
-          className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/70 hover:bg-black/90 p-2 sm:p-3 rounded-full z-10"
-        >
-          <ChevronLeft size={24} />
-        </button>
-        <button
-          onClick={() => scroll(skillRef, "right")}
-          className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/70 hover:bg-black/90 p-2 sm:p-3 rounded-full z-10"
-        >
-          <ChevronRight size={24} />
-        </button>
+        <div className="flex items-center justify-between mb-6 sm:mb-8">
+          <h2 className="text-2xl sm:text-3xl font-semibold">Skills</h2>
+          {!isMobile && (
+            <div className="flex gap-3">
+              <button
+                onClick={() => scroll(skillRef, "left")}
+                className="p-2 bg-white/10 hover:bg-white/20 rounded-full"
+              >
+                <ChevronLeft />
+              </button>
+              <button
+                onClick={() => scroll(skillRef, "right")}
+                className="p-2 bg-white/10 hover:bg-white/20 rounded-full"
+              >
+                <ChevronRight />
+              </button>
+            </div>
+          )}
+        </div>
 
         <div
           ref={skillRef}
-          className="flex space-x-4 sm:space-x-6 overflow-x-hidden scroll-smooth py-2"
+          className="flex space-x-4 sm:space-x-6 overflow-x-auto scroll-smooth py-2 cursor-grab select-none hide-scrollbar"
         >
           {skills.map((skill, index) => (
             <div
@@ -148,9 +196,11 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Upcoming Projects */}
+      {/* === Upcoming Projects === */}
       <section className="bg-black py-12 px-4 sm:py-16 sm:px-8">
-        <h2 className="text-2xl sm:text-3xl font-semibold mb-6 sm:mb-8">Upcoming Projects</h2>
+        <h2 className="text-2xl sm:text-3xl font-semibold mb-6 sm:mb-8">
+          Upcoming Projects
+        </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
           {upcoming.map((project, index) => (
@@ -182,24 +232,31 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Upcoming Skills */}
+      {/* === Upcoming Skills === */}
       <section className="relative bg-black py-12 px-4 sm:py-16 sm:px-8">
-        <h2 className="text-2xl sm:text-3xl font-semibold mb-6 sm:mb-8">Upcoming Skills</h2>
-        <button
-          onClick={() => scroll(uskillRef, "left")}
-          className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/70 hover:bg-black/90 p-2 sm:p-3 rounded-full z-10"
-        >
-          <ChevronLeft size={24} />
-        </button>
-        <button
-          onClick={() => scroll(uskillRef, "right")}
-          className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/70 hover:bg-black/90 p-2 sm:p-3 rounded-full z-10"
-        >
-          <ChevronRight size={24} />
-        </button>
+        <div className="flex items-center justify-between mb-6 sm:mb-8">
+          <h2 className="text-2xl sm:text-3xl font-semibold">Upcoming Skills</h2>
+          {!isMobile && (
+            <div className="flex gap-3">
+              <button
+                onClick={() => scroll(uskillRef, "left")}
+                className="p-2 bg-white/10 hover:bg-white/20 rounded-full"
+              >
+                <ChevronLeft />
+              </button>
+              <button
+                onClick={() => scroll(uskillRef, "right")}
+                className="p-2 bg-white/10 hover:bg-white/20 rounded-full"
+              >
+                <ChevronRight />
+              </button>
+            </div>
+          )}
+        </div>
+
         <div
           ref={uskillRef}
-          className="flex space-x-4 sm:space-x-6 overflow-x-hidden scroll-smooth py-2"
+          className="flex space-x-4 sm:space-x-6 overflow-x-auto scroll-smooth py-2 cursor-grab select-none scrollbar-hide"
         >
           {upcomingskills.map((skill, index) => (
             <div
