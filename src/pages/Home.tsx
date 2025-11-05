@@ -14,7 +14,7 @@ const Home: React.FC = () => {
   const uskillRef = useRef<HTMLDivElement>(null!);
   const [isMobile, setIsMobile] = useState(false);
 
-  // ✅ Detect device type
+ 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
     handleResize();
@@ -22,7 +22,7 @@ const Home: React.FC = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // ✅ Enable drag/swipe scroll (unified for touch & mouse)
+
   const enableDragScroll = (ref: React.RefObject<HTMLDivElement>) => {
     const element = ref.current;
     if (!element) return;

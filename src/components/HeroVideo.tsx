@@ -30,7 +30,7 @@ const HeroVideo: React.FC<HeroVideoProps> = ({ videoSrc, poster }) => {
           Aryan
         </h1>
         <p className="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed">
-          Hey! I’m Aryan, a junior software developer passionate about learning,
+          Hey! I’m Aryan, a software developer passionate about learning,
           experimenting, and creating. Join me on my creative journey and explore
           everything I've built so far — and what's yet to come!
         </p>
