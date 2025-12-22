@@ -1,6 +1,16 @@
 const projects = [
-  {
+   {
     id: 'p1',
+    title: 'UI/Ux design of liquor store website',
+    image: '/image/page0.png',
+    description: ' UI/UX designer for a liquor store website project.',
+    tags: ['UI/Ux', 'figma'],
+     longDescription:" this is a freelancing project i got as a contractor.",
+    extraImages: ["/image/page1.png", "/image/page2.png" , "/image/page3.png" , "/image/page4.png" , ]
+   
+  }, 
+  {
+    id: 'p2',
     title: 'Portfolio Website',
     image: '/image/portfolio.png',
     description: 'My personal portfolio built with React and Three.js.',
@@ -11,7 +21,7 @@ const projects = [
    
   },  
   {
-    id: 'p2',
+    id: 'p3',
     title: 'User Management system  ',
     image: '/image/capstone.png',
     description: 'This was my capstone project for my final semester during my college made for a Taekwondow Acade.....Read more',
@@ -22,7 +32,7 @@ const projects = [
     video: "/video/user.mp4",                  
   },
   {
-    id: 'p3',
+    id: 'p4',
     title: 'Router Kernel',
     image: '/image/RouterKernel.png',
     description: 'made a low level router kernel in RUSt for class Project .',
@@ -33,7 +43,7 @@ const projects = [
   
   },
   {
-    id: 'p4',
+    id: 'p5',
     title: 'RC Car Website',
     image: '/image/RCcars.png',
     description: 'made Rc car webiste as a class project using React javascript and mongoDB.',
@@ -44,7 +54,7 @@ const projects = [
   
   },
   {
-    id: 'p5',
+    id: 'p6',
     title: ' Advance Mobile Calculator App',
     image: '/image/calculator1.png',
     description: 'made mobile calculator using React and javascript it can perform basic conversion and advance convserion aswell.',
@@ -55,7 +65,7 @@ const projects = [
     video: "/video/calculator.mp4",
   },
   {
-    id: 'p6',
+    id: 'p7',
     title: 'Employee Management System',
     image: '/image/employeeM.png',
     description: 'made a simple employee managemnt system using C# in MAUI app and SQLlite  .',
