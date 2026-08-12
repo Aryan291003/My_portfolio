@@ -1,16 +1,28 @@
 const projects = [
-   {
+  
+  {
     id: 'p1',
-    title: 'UI/Ux design of liquor store website',
-    image: '/image/page0.png',
-    description: ' UI/UX designer for a liquor store website project.',
-    tags: ['UI/Ux', 'figma'],
-     longDescription:" this is a freelancing project i got as a contractor.",
-    extraImages: ["/image/page1.png", "/image/page2.png" , "/image/page3.png" , "/image/page4.png" , ]
+    title: 'Shopify Based E-commerce Webstie ',
+    image: '/image/ll0.png',
+    description: ' Designed and built a full e-commerce website on Shopify, including custom UI/UX in Figma for an intuitive, modern shopping experience Integrated custom APIs into the backend to support store functionality beyond Shopifys native capabilities.',
+    tags: ['Shopify', 'Liquid', 'JavaScript', 'CSS', 'HTML', 'Custom APIs', 'Figma', 'SQL' ],
+    link: 'https://legacyliquor.ca',
+     longDescription:" this is a freelancing Cilent project i got as a contractor.",
+     extraImages: ["/image/pdsec/ll1 .png", "/image/pdsec/ll2 .png" , "/image/pdsec/ll3 .png"  ]
+   
+  }, 
+   {
+    id: 'p2',
+    title: 'LLM development for Identifying reliabity of news in news articles',
+  image: '/image/llm1.png',
+    description: ' Developed and train a LLM for recognising fake news in the media  Built a custom front-end using react and typescript and backend with python Use of OpenAI for LLM layer and custom training of the model using openAI API and tokens.',
+    tags: ['Python','OOP','async programming','OpenAI API', 'tokens','react', 'and' ,'typescript' ],
+     longDescription:" this is a Class porject I made with my team in my Final Semester of College .",
+    extraImages: [ "/image/pdsec/llm2.png" , "/image/pdsec/llm3.png"  ]
    
   }, 
   {
-    id: 'p2',
+    id: 'p4',
     title: 'Portfolio Website',
     image: '/image/portfolio.png',
     description: 'My personal portfolio built with React and Three.js.',
@@ -21,7 +33,7 @@ const projects = [
    
   },  
   {
-    id: 'p3',
+    id: 'p5',
     title: 'User Management system  ',
     image: '/image/capstone.png',
     description: 'This was my capstone project for my final semester during my college made for a Taekwondow Acade.....Read more',
@@ -32,7 +44,7 @@ const projects = [
     video: "/video/user.mp4",                  
   },
   {
-    id: 'p4',
+    id: 'p6',
     title: 'Router Kernel',
     image: '/image/RouterKernel.png',
     description: 'made a low level router kernel in RUSt for class Project .',
@@ -43,18 +55,18 @@ const projects = [
   
   },
   {
-    id: 'p5',
+    id: 'p7',
     title: 'RC Car Website',
     image: '/image/RCcars.png',
     description: 'made Rc car webiste as a class project using React javascript and mongoDB.',
-    tags: ['React','javascript','CSS','mongoDB', 'Node.js'],
+    tags: ['React','javascript','CSS','mongoDB', 'Node.js', 'wordpress'],
      link: 'https://github.com/Aryan291003/RcCars-website-',
      longDescription:"in this porject we have made a E-commerce style website in which the user can purchase, browse the product.I have made this project using React for frontend and Node.js with express for backend and mongoDB for database.",
      extraImages: ["/image/pdsec/rc1.png", "/image/pdsec/rc2.png"],
   
   },
   {
-    id: 'p6',
+    id: 'p8',
     title: ' Advance Mobile Calculator App',
     image: '/image/calculator1.png',
     description: 'made mobile calculator using React and javascript it can perform basic conversion and advance convserion aswell.',
@@ -65,7 +77,7 @@ const projects = [
     video: "/video/calculator.mp4",
   },
   {
-    id: 'p7',
+    id: 'p9',
     title: 'Employee Management System',
     image: '/image/employeeM.png',
     description: 'made a simple employee managemnt system using C# in MAUI app and SQLlite  .',
