@@ -3,26 +3,41 @@ import skills from "../data/skills";
 
 export default function Skills() {
   return (
-    <div className="max-w-6xl mx-auto px-6 py-16 text-gray-200">
-      <h1 className="text-3xl font-bold mb-10 text-white">Skills</h1>
+    <div className="min-h-screen bg-[#0F171E] text-gray-200">
+      <div className="max-w-6xl mx-auto px-6 py-16">
+        <h1 className="text-2xl sm:text-3xl font-bold mb-1 text-white">Skills</h1>
+        <p className="text-sm text-gray-400 mb-8 sm:mb-10">
+          Browse by category
+        </p>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {skills.map((s) => (
-          <article
-            key={s.id}
-            className="bg-[#1a1a1a] rounded-xl p-4 shadow-lg hover:scale-105 transition-transform duration-300"
-          >
-            <div className="h-48 bg-white/5 rounded-md mb-4 overflow-hidden flex items-center justify-center">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-5">
+          {skills.map((s) => (
+            <article
+              key={s.id}
+              className="group relative aspect-video rounded-lg overflow-hidden cursor-pointer shadow-lg transition-transform duration-300 hover:scale-105 hover:z-10 hover:shadow-2xl hover:shadow-black/60"
+            >
+              {/* Backdrop image */}
               <img
                 src={s.image}
                 alt={s.title}
-                className="w-full h-full object-cover"
+                className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               />
-            </div>
 
-            <h3 className="text-xl font-semibold text-center">{s.title}</h3>
-          </article>
-        ))}
+              {/* Genre-tile gradient overlay, like Prime's genre grid */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10 group-hover:from-orange-500/70 group-hover:via-black/50 transition-colors duration-300" />
+
+              {/* Border accent */}
+              <div className="absolute inset-0 border border-white/10 group-hover:border-orange-400/60 rounded-lg transition-colors duration-300" />
+
+              {/* Title */}
+              <div className="absolute inset-0 flex items-center justify-center p-3">
+                <h3 className="text-sm sm:text-lg font-bold text-white uppercase tracking-wide text-center drop-shadow-lg">
+                  {s.title}
+                </h3>
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
     </div>
   );

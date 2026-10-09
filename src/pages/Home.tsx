@@ -8,13 +8,14 @@ import upcomingskills from "../data/upcomingskills";
 import HeroVideo from "../components/HeroVideo";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
+
 const Home: React.FC = () => {
   const projectRef = useRef<HTMLDivElement>(null!);
   const skillRef = useRef<HTMLDivElement>(null!);
   const uskillRef = useRef<HTMLDivElement>(null!);
   const [isMobile, setIsMobile] = useState(false);
 
- 
+
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
     handleResize();
@@ -93,23 +94,24 @@ const Home: React.FC = () => {
   };
 
   return (
-    <div className="relative w-full min-h-screen bg-gray-950 text-white overflow-hidden">
+    <div className="relative w-full min-h-screen bg-[#0F171E] text-white overflow-hidden">
       <HeroVideo videoSrc="/video/intro.mp4" poster="/image/hero-fallback.jpg" />
 
-      <section className="relative bg-black py-12 px-4 sm:py-16 sm:px-8">
+      {/* Featured Projects */}
+      <section className="relative bg-[#0F171E] py-12 px-4 sm:py-16 sm:px-8">
         <div className="flex items-center justify-between mb-6 sm:mb-8">
-          <h2 className="text-2xl sm:text-3xl font-semibold">Featured Projects</h2>
+          <h2 className="text-2xl sm:text-3xl font-semibold text-white">Featured Projects</h2>
           {!isMobile && (
             <div className="flex gap-3">
               <button
                 onClick={() => scroll(projectRef, "left")}
-                className="p-2 bg-white/10 hover:bg-white/20 rounded-full"
+                className="p-2 bg-white/10 hover:bg-orange-500/20 hover:text-orange-400 rounded-full transition-colors"
               >
                 <ChevronLeft />
               </button>
               <button
                 onClick={() => scroll(projectRef, "right")}
-                className="p-2 bg-white/10 hover:bg-white/20 rounded-full"
+                className="p-2 bg-white/10 hover:bg-orange-500/20 hover:text-orange-400 rounded-full transition-colors"
               >
                 <ChevronRight />
               </button>
@@ -123,7 +125,7 @@ const Home: React.FC = () => {
         >
           {projects.slice(0, 6).map((project, index) => (
             <Link key={index} to={`/projects/${project.id}`}>
-              <div className="group relative w-[80vw] sm:w-[320px] md:w-[380px] bg-[#1a1a1a] rounded-xl shadow-lg flex-shrink-0 cursor-pointer overflow-hidden hover:scale-105 transition-transform duration-300">
+              <div className="group relative w-[80vw] sm:w-[320px] md:w-[380px] bg-[#1A242D] rounded-xl shadow-lg flex-shrink-0 cursor-pointer overflow-hidden hover:scale-105 hover:ring-1 hover:ring-orange-400/40 transition-all duration-300">
                 <img
                   src={project.image}
                   alt={project.title}
@@ -137,7 +139,7 @@ const Home: React.FC = () => {
                       {project.tags.map((tag, i) => (
                         <span
                           key={i}
-                          className="text-xs bg-blue-600/20 text-blue-400 px-2 py-1 rounded-full"
+                          className="text-xs bg-orange-500/20 text-orange-400 px-2 py-1 rounded-full"
                         >
                           {tag}
                         </span>
@@ -151,21 +153,21 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-     
-      <section className="relative bg-black py-12 px-4 sm:py-16 sm:px-8">
+      {/* Skills */}
+      <section className="relative bg-[#0F171E] py-12 px-4 sm:py-16 sm:px-8">
         <div className="flex items-center justify-between mb-6 sm:mb-8">
-          <h2 className="text-2xl sm:text-3xl font-semibold">Skills</h2>
+          <h2 className="text-2xl sm:text-3xl font-semibold text-white">Skills</h2>
           {!isMobile && (
             <div className="flex gap-3">
               <button
                 onClick={() => scroll(skillRef, "left")}
-                className="p-2 bg-white/10 hover:bg-white/20 rounded-full"
+                className="p-2 bg-white/10 hover:bg-orange-500/20 hover:text-orange-400 rounded-full transition-colors"
               >
                 <ChevronLeft />
               </button>
               <button
                 onClick={() => scroll(skillRef, "right")}
-                className="p-2 bg-white/10 hover:bg-white/20 rounded-full"
+                className="p-2 bg-white/10 hover:bg-orange-500/20 hover:text-orange-400 rounded-full transition-colors"
               >
                 <ChevronRight />
               </button>
@@ -180,7 +182,7 @@ const Home: React.FC = () => {
           {skills.map((skill, index) => (
             <div
               key={index}
-              className="w-[70vw] sm:w-[300px] h-[250px] sm:h-[280px] bg-[#1a1a1a] rounded-xl shadow-lg flex-shrink-0 cursor-pointer hover:scale-105 transition-transform duration-300 group relative"
+              className="w-[70vw] sm:w-[300px] h-[250px] sm:h-[280px] bg-[#1A242D] rounded-xl shadow-lg flex-shrink-0 cursor-pointer hover:scale-105 hover:ring-1 hover:ring-orange-400/40 transition-all duration-300 group relative"
             >
               <img
                 src={skill.image}
@@ -195,8 +197,9 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      <section className="bg-black py-12 px-4 sm:py-16 sm:px-8">
-        <h2 className="text-2xl sm:text-3xl font-semibold mb-6 sm:mb-8">
+      {/* Upcoming Projects */}
+      <section className="bg-[#0F171E] py-12 px-4 sm:py-16 sm:px-8">
+        <h2 className="text-2xl sm:text-3xl font-semibold text-white mb-6 sm:mb-8">
           Upcoming Projects
         </h2>
 
@@ -204,7 +207,7 @@ const Home: React.FC = () => {
           {upcoming.map((project, index) => (
             <div
               key={index}
-              className="bg-[#1a1a1a] rounded-xl shadow-lg overflow-hidden hover:scale-105 transition-transform duration-300"
+              className="bg-[#1A242D] rounded-xl shadow-lg overflow-hidden hover:scale-105 hover:ring-1 hover:ring-orange-400/40 transition-all duration-300"
             >
               <img
                 src={project.image}
@@ -218,7 +221,7 @@ const Home: React.FC = () => {
                   {project.tags?.map((tag, i) => (
                     <span
                       key={i}
-                      className="text-xs bg-blue-600/20 text-blue-400 px-2 py-1 rounded-full"
+                      className="text-xs bg-orange-500/20 text-orange-400 px-2 py-1 rounded-full"
                     >
                       {tag}
                     </span>
@@ -230,21 +233,21 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      
-      <section className="relative bg-black py-12 px-4 sm:py-16 sm:px-8">
+      {/* Upcoming Skills */}
+      <section className="relative bg-[#0F171E] py-12 px-4 sm:py-16 sm:px-8">
         <div className="flex items-center justify-between mb-6 sm:mb-8">
-          <h2 className="text-2xl sm:text-3xl font-semibold">Upcoming Skills</h2>
+          <h2 className="text-2xl sm:text-3xl font-semibold text-white">Upcoming Skills</h2>
           {!isMobile && (
             <div className="flex gap-3">
               <button
                 onClick={() => scroll(uskillRef, "left")}
-                className="p-2 bg-white/10 hover:bg-white/20 rounded-full"
+                className="p-2 bg-white/10 hover:bg-orange-500/20 hover:text-orange-400 rounded-full transition-colors"
               >
                 <ChevronLeft />
               </button>
               <button
                 onClick={() => scroll(uskillRef, "right")}
-                className="p-2 bg-white/10 hover:bg-white/20 rounded-full"
+                className="p-2 bg-white/10 hover:bg-orange-500/20 hover:text-orange-400 rounded-full transition-colors"
               >
                 <ChevronRight />
               </button>
@@ -259,7 +262,7 @@ const Home: React.FC = () => {
           {upcomingskills.map((skill, index) => (
             <div
               key={index}
-              className="w-[70vw] sm:w-[300px] h-[250px] sm:h-[280px] bg-[#1a1a1a] rounded-xl shadow-lg flex-shrink-0 cursor-pointer hover:scale-105 transition-transform duration-300 group relative"
+              className="w-[70vw] sm:w-[300px] h-[250px] sm:h-[280px] bg-[#1A242D] rounded-xl shadow-lg flex-shrink-0 cursor-pointer hover:scale-105 hover:ring-1 hover:ring-orange-400/40 transition-all duration-300 group relative"
             >
               <img
                 src={skill.image}

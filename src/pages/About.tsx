@@ -5,7 +5,7 @@ export default function About() {
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
       <h1 className="text-2xl sm:text-3xl font-bold">About Me</h1>
       <p className="mt-4 text-gray-300 text-sm sm:text-base leading-relaxed">
-        Hello! I'm Aryan Rattan, a passionate and dedicated software developer with a strong curiosity for how technology shapes the world around us.
+        Hello! I'm Aryan Rattan, a passionate and dedicated software developer and UI/UX web and product designer with a strong curiosity for how technology shapes the world around us.
         I hold a Diploma in Software Development, where I built a solid foundation in programming, application development, and software design. 
         My journey into tech began with a simple curiosity — understanding how things work — which soon evolved into a drive to create, innovate, and build impactful solutions that solve real-world problems.
         <br /><br />
