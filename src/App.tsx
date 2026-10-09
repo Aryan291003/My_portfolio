@@ -11,6 +11,7 @@ import Contact from './pages/Contact'
 import Resume from './pages/Resume'
 import Login from './pages/login'
 import ProjectDetails from './pages/ProjectDetails'
+import  Design from './pages/Design'
 export default function App() {
   return (
     <div className="min-h-screen bg-[#0b0f12] text-white">
@@ -40,6 +41,14 @@ export default function App() {
             <Footer />
           </>
         } />
+       <Route path="/design" element={
+  <>
+    <Header />
+    <main className="pt-20"><Design /></main>
+    <Footer />
+  </>
+} />
+            
         <Route
           path="/projects/:id"
             element={
@@ -49,6 +58,7 @@ export default function App() {
             <Footer />
     </>
   }
+  
 />
         <Route path="/skills" element={
           <>
